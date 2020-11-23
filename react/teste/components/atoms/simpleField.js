@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
   },
   textField: {
-    fontSize: 24
+    fontSize: 24,
+    color: 'white'
   },
   field: {
     paddingHorizontal: 15,

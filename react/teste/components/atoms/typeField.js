@@ -26,7 +26,7 @@ const TypeField = (props) => {
             <View style={styles.field}>
                 <Text style={styles.labelField} >Type</Text>
                 <RNPickerSelect
-                    style={styles.textField}
+                    style={styles.typeField}
                     onValueChange={value => { setType(value) }}
                     items={[
                         { label: 'Ganho', value: 'ganho' },
@@ -34,6 +34,8 @@ const TypeField = (props) => {
                     ]}
                 // value={value}
                 />
+                <Text>{ value }</Text>
+                
             </View>
         </>
     );
@@ -47,9 +49,9 @@ const styles = StyleSheet.create({
         fontWeight: '600',
         paddingLeft: 10,
     },
-    textField: {
+    typeField: {
         fontSize: 24,
-        color: '#757575'
+        color: 'red'
     },
     field: {
         paddingHorizontal: 15,

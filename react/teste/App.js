@@ -24,23 +24,26 @@ import {
 
 import EditExpense from './components/molecules/editExpense'
 import Home from './components/organisms/home';
+import Graphics from './components/organisms/graphics';
+import Header from './components/molecules/header';
+import SelectVersion from './components/organisms/selectVersion'
+
 
 const Stack = createStackNavigator();
 
 
 
 export default function App() {
-
-  
   return (
     <>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: '#171717', height: 110, borderTopEndRadius: 30, borderTopStartRadius: 30  }, headerTintColor: '#02f55f', headerTitleStyle: {
             color: '#ff8f33', fontSize: 26
           }}}>
-          <Stack.Screen name="Registros Recentes" component={Home} />
+          <Stack.Screen name="Versão" component={SelectVersion}/>
+          <Stack.Screen name="Registros Recentes" component={Home}/>
           <Stack.Screen name="Adição de Registro" component={EditExpense} />
-
+          <Stack.Screen name="Relatórios" component={Graphics} />
         </Stack.Navigator>
       </NavigationContainer>
 

@@ -26,7 +26,7 @@ const EditExpense = ({ navigation }) => {
 
     function saveexpense() {
         db.transaction(function (tx) {
-            tx.executeSql('INSERT INTO expenses (type, description, value, establishment) VALUES (?,?,?,?)', [expense.type, expense.description, expense.value, expense.establishment])
+            tx.executeSql('INSERT INTO expenses (type, description, value, establishment, tag) VALUES (?,?,?,?,?)', [expense.type, expense.description, expense.value, expense.establishment, expense.tag])
         })
 
         navigation.goBack();
@@ -49,6 +49,8 @@ const EditExpense = ({ navigation }) => {
                         placeholder={"Add establishment"} />
 
                     <TagField value={(e) => { setExpense({ ...expense, tag: e }); }} />
+
+                    <Text> { expense.tag } </Text>
 
                     <Pressable style={styles.button} onPress={() => saveexpense()} accessibilityLabel="Learn more about this purple button">
                         <Text style={{ fontSize: 24, fontWeight: '700' }}> Salvar </Text>

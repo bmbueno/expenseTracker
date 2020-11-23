@@ -12,15 +12,30 @@ import {
   Colors
 } from 'react-native/Libraries/NewAppScreen';
 
+import RNPickerSelect from 'react-native-picker-select';
+
 const TagField = (props) => {
   const [value, setvalue] = useState('');
+
+  function setTag(value) {
+    setvalue(value);
+    props.value(value);
+  }
 
   return (
     <>
       <View style={styles.field}>
         <Text style={styles.labelField} >Tag</Text>
-        <TextInput style={styles.textField} onChangeText={text => setvalue(text)}
-          onEndEditing={props.value.bind(this, value)} value={value} />
+        <RNPickerSelect
+                    style={styles.textField}
+                    onValueChange={value => { setTag(value) }}
+                    items={[
+                        { label: 'Alimentação', value: 'alimentacao' },
+                        { label: 'Transporte', value: 'transporte' },
+                        { label: 'Saúde', value: 'saude' },
+                    ]}
+                // value={value}
+                />
       </View>
     </>
   );
